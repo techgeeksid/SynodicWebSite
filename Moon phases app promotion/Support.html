@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #14160f; }
+  body { font-family: 'Archivo', Helvetica, sans-serif; }
+  a { color: #ecc464; text-decoration: none; }
+  a:hover { color: #f5d98c; }
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #14160f; color: #a3a49b;">
+  <nav style="max-width: 720px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 32px); display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <a href="Synodic Landing.dc.html" style="display: flex; align-items: center; gap: 12px; color: #e7e6df;">
+      <img src="assets/app-icon.png" alt="Synodic app icon" style="width: 26px; height: 26px; border-radius: 7px; display: block;">
+      <span style="font-size: 16px; font-weight: 600; letter-spacing: .14em;">SYNODIC</span>
+    </a>
+    <a href="Synodic Landing.dc.html" style="font-size: 13px; color: #a3a49b; display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px;" style-hover="color: #eeece3;">← Back</a>
+  </nav>
+
+  <main style="max-width: 720px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 32px) 96px; display: flex; flex-direction: column; gap: 32px; font-size: 16px; line-height: 1.7;">
+    <div>
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: .22em; color: #a9d9bd; margin-bottom: 12px;">SUPPORT</div>
+      <h1 style="margin: 0; font-size: clamp(30px, 6vw, 40px); font-weight: 600; color: #eeece3;">Help with Synodic</h1>
+      <p style="margin: 12px 0 0; font-size: 14px; color: #6f7168;">Last updated: August 4, 2026</p>
+    </div>
+
+    <p style="margin: 0;">Synodic is a moon-phase viewer for iPhone. If something isn't working or you have a question, email <a href="mailto:{{ supportEmail }}" style="display: inline-flex; align-items: center; min-height: 44px;">{{ supportEmail }}</a> and we'll get back to you.</p>
+
+    <div style="border: 1px solid rgba(233,230,217,.1); border-radius: 14px; padding: clamp(20px, 4vw, 28px); background: #191c12; display: flex; flex-direction: column; gap: 16px;">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 600; color: #eeece3;">Contact</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; color: #6f7168;">EMAIL</span>
+          <a href="mailto:{{ supportEmail }}" style="font-size: 16px; display: inline-flex; align-items: center; min-height: 44px;">{{ supportEmail }}</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; color: #6f7168;">PLATFORM</span>
+          <span style="font-size: 16px; color: #d6d5cc; display: inline-flex; align-items: center; min-height: 44px;">iPhone — TestFlight beta</span>
+        </div>
+      </div>
+      <a href="mailto:{{ supportEmail }}?subject=Synodic%20support" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 26px; border-radius: 999px; background: #ecc464; color: #15170e; font-size: 15px; font-weight: 700; letter-spacing: .04em;" style-hover="background: #f5d98c; color: #15170e;">Email support</a>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <h2 style="margin: 0; font-size: 24px; font-weight: 600; color: #eeece3;">Frequently asked questions</h2>
+      <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="7">
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 22px; border-bottom: 1px solid rgba(233,230,217,.07);">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 600; color: #eeece3;">{{ faq.q }}</h3>
+          <p style="margin: 0; text-wrap: pretty;">{{ faq.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h2 style="margin: 0; font-size: 24px; font-weight: 600; color: #eeece3;">Reporting a problem</h2>
+      <p style="margin: 0;">To help us fix things quickly, include the following in your email:</p>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <sc-for list="{{ reportItems }}" as="item" hint-placeholder-count="4">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #ecc464; line-height: 1.7;">·</span>
+            <span>{{ item }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h2 style="margin: 0; font-size: 24px; font-weight: 600; color: #eeece3;">Accessibility</h2>
+      <p style="margin: 0;">If you hit an accessibility barrier — VoiceOver, Dynamic Type, contrast, or anything else — email us and we'll treat it as a bug, not a feature request.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h2 style="margin: 0; font-size: 24px; font-weight: 600; color: #eeece3;">Privacy</h2>
+      <p style="margin: 0;">Synodic collects no data of any kind. Everything is computed on your device. Read the full <a href="Synodic Privacy Policy.dc.html">privacy policy</a>.</p>
+    </div>
+  </main>
+
+  <footer style="border-top: 1px solid rgba(233,230,217,.07);">
+    <div style="max-width: 720px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 32px); display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; font-size: 13px; color: #6f7168;">
+      <span style="display: inline-flex; align-items: center; min-height: 44px;">© 2026 Synodic</span>
+      <div style="display: flex; align-items: center; gap: 12px 24px; flex-wrap: wrap;">
+        <a href="Synodic Landing.dc.html" style="color: #a3a49b; display: inline-flex; align-items: center; min-height: 44px;" style-hover="color: #eeece3;">Home</a>
+        <a href="Synodic Privacy Policy.dc.html" style="color: #a3a49b; display: inline-flex; align-items: center; min-height: 44px;" style-hover="color: #eeece3;">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;supportEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;support@synodic.art&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      supportEmail: this.props.supportEmail ?? 'support@synodic.app',
+      faqs: [
+        { q: 'What does Synodic actually show?', a: "The Moon's current phase for your location's date and time — its shape, how much of the disc is lit, and where it sits in the current cycle. Nothing more." },
+        { q: 'Why only one cycle?', a: 'Synodic is deliberately built around the present synodic month — the 29.5 days from one new moon to the next. It is a viewer for tonight, not an almanac.' },
+        { q: 'Does it need an internet connection?', a: 'No. Every phase is calculated on your device from its clock, so the app works in airplane mode and in the middle of nowhere.' },
+        { q: 'Are there notifications?', a: 'Not yet. Full-moon and new-moon reminders are the most requested addition and are on the list for a future update.' },
+        { q: 'The phase looks wrong to me.', a: "Check that your device's date, time, and time zone are set automatically in Settings → General → Date & Time. Phase drawings can also look inverted if you are comparing a Northern-Hemisphere illustration with a Southern-Hemisphere sky." },
+        { q: 'How do I join or leave the beta?', a: 'Install Apple\u2019s TestFlight app and open the invite link from the home page. To leave, open TestFlight, tap Synodic, and choose Stop Testing.' },
+        { q: 'How do I delete the app and my data?', a: 'Touch and hold the icon on your Home Screen and choose Delete App. Because Synodic stores nothing off-device, deleting the app removes everything.' }
+      ],
+      reportItems: [
+        'Your iPhone model and iOS version (Settings → General → About)',
+        'The Synodic build number shown in TestFlight',
+        'What you expected to see, and what you saw instead',
+        'A screenshot or screen recording, if the issue is visual'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
